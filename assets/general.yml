@@ -15,7 +15,7 @@ DOMAIN: <%= ENV['DOMAIN'] %>
 # If true forces everyone (in the production environment) to use encrypted connections
 # (via https) by redirecting unencrypted connections. This is *highly* recommended
 # so that logins can't be intercepted by naughty people.
-FORCE_SSL: <%= ENV['FORCE_SSL'] == 'true' ? true : false %>
+FORCE_SSL: <%= ENV['FORCE_SSL'] == 'true' %>
 
 # ISO country code of country currrently deployed in
 # (http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
@@ -35,11 +35,11 @@ TWITTER_WIDGET_ID: <%= ENV['TWITTER_WIDGET_ID'] %>
 # Locales we wish to support in this app, space-delimited
 AVAILABLE_LOCALES: <%= ENV['AVAILABLE_LOCALES'] %>
 DEFAULT_LOCALE: <%= ENV['DEFAULT_LOCALE'] %>
-USE_DEFAULT_BROWSER_LANGUAGE: <%= ENV['USE_DEFAULT_BROWSER_LANGUAGE'] == 'true' ? true : false %>
+USE_DEFAULT_BROWSER_LANGUAGE: <%= ENV['USE_DEFAULT_BROWSER_LANGUAGE'] == 'true' %>
 
 # If you don't want the default locale to be included in URLs generated
 # by the application, set this to false
-INCLUDE_DEFAULT_LOCALE_IN_URLS: <%= ENV['INCLUDE_DEFAULT_LOCALE_IN_URLS'] == 'true' ? true : false %>
+INCLUDE_DEFAULT_LOCALE_IN_URLS: <%= ENV['INCLUDE_DEFAULT_LOCALE_IN_URLS'] == 'true' %>
 
 # How many days should have passed before an answer to a request is officially late?
 REPLY_LATE_AFTER_DAYS: <%= ENV['REPLY_LATE_AFTER_DAYS'] %>
@@ -62,10 +62,10 @@ THEME_URLS:
 # (but only if this config is set). If the branch doesn't exist it will fall
 # back to using a tagged version specific to your installed alaveteli versio    n.
 # If that doesn't exist it will back to master.
-THEME_BRANCH: <%= ENV['THEME_BRANCH'] == 'false' ? false : ENV['THEME_BRANCH'] %>
+THEME_BRANCH: <%= ENV['THEME_BRANCH'] %>
 
 # Whether a user needs to sign in to start the New Request process
-FORCE_REGISTRATION_ON_NEW_REQUEST: <%= ENV['FORCE_REGISTRATION_ON_NEW_REQUEST'] == 'true' ? true : false %>
+FORCE_REGISTRATION_ON_NEW_REQUEST: <%= ENV['FORCE_REGISTRATION_ON_NEW_REQUEST'] %>
 
 ## Incoming email
 # Your email domain, e.g. 'foifa.com'
@@ -85,10 +85,10 @@ BLACKHOLE_PREFIX: <%= ENV['BLACKHOLE_PREFIX'] %>
 # Leave these two blank to skip admin authorisation
 ADMIN_USERNAME: <%= ENV['ADMIN_USERNAME'] %>
 ADMIN_PASSWORD: <%= ENV['ADMIN_PASSWORD'] %>
-DISABLE_EMERGENCY_USER: <%= ENV['DISABLE_EMERGENCY_USER'] == 'true' ? true : false %>
+DISABLE_EMERGENCY_USER: <%= ENV['DISABLE_EMERGENCY_USER'] == 'true' %>
 
 # Set this to true, and the admin interface will be available to anonymous users
-SKIP_ADMIN_AUTH: <%= ENV['SKIP_ADMIN_AUTH'] == 'true' ? true : false %>
+SKIP_ADMIN_AUTH: <%= ENV['SKIP_ADMIN_AUTH'] == 'true' %>
 
 # Email "from" details
 CONTACT_EMAIL: <%= ENV['CONTACT_EMAIL'] %>
@@ -140,7 +140,7 @@ NEW_RESPONSE_REMINDER_AFTER_DAYS: <%= ENV['NEW_RESPONSE_REMINDER_AFTER_DAYS'] %>
 # request (Linux only).  Since Ruby never returns memory to the OS, if the
 # existing process previously served a larger request, this won't
 # show any consumption for the later request.
-DEBUG_RECORD_MEMORY: <%= ENV['DEBUG_RECORD_MEMORY'] == 'true' ? true : false %>
+DEBUG_RECORD_MEMORY: <%= ENV['DEBUG_RECORD_MEMORY'] == 'true'%>
 
 # Currently we default to using pdftk to compress PDFs.  You can
 # optionally try Ghostscript, which should do a better job of
@@ -148,7 +148,7 @@ DEBUG_RECORD_MEMORY: <%= ENV['DEBUG_RECORD_MEMORY'] == 'true' ? true : false %>
 # compression, in which case Alaveteli doesn't recompress the PDFs at
 # all and logs a warning message "Unable to compress PDF"; which would
 # be another reason to try this setting.
-USE_GHOSTSCRIPT_COMPRESSION: <%= ENV['USE_GHOSTSCRIPT_COMPRESSION'] == 'true' ? true : false %>
+USE_GHOSTSCRIPT_COMPRESSION: <%= ENV['USE_GHOSTSCRIPT_COMPRESSION'] == 'true' %>
 
 # mySociety's gazeteer service.  Shouldn't change.
 GAZE_URL: <%= ENV['GAZE_URL'] %>
@@ -192,7 +192,7 @@ DONATION_URL: <%= ENV['DONATION_URL'] %>
 
 # If you set this to 'true' then a page of statistics on the
 # performance of public bodies will be available:
-PUBLIC_BODY_STATISTICS_PAGE: <%= ENV['PUBLIC_BODY_STATISTICS_PAGE'] == 'true' ? true : false %>
+PUBLIC_BODY_STATISTICS_PAGE: <%= ENV['PUBLIC_BODY_STATISTICS_PAGE'] == 'true' %>
 
 # The page of statistics for public bodies will only consider public
 # bodies that have had at least this number of requests:
@@ -201,14 +201,14 @@ MINIMUM_REQUESTS_FOR_STATISTICS: <%= ENV['MINIMUM_REQUESTS_FOR_STATISTICS'] %>
 # If only some of the public bodies have been translated into every
 # available locale, you can allow a fallback to the default locale for
 # listing of public bodies.
-PUBLIC_BODY_LIST_FALLBACK_TO_DEFAULT_LOCALE: <%= ENV['PUBLIC_BODY_LIST_FALLBACK_TO_DEFAULT_LOCALE'] == 'true' ? true : false %>
+PUBLIC_BODY_LIST_FALLBACK_TO_DEFAULT_LOCALE: <%= ENV['PUBLIC_BODY_LIST_FALLBACK_TO_DEFAULT_LOCALE'] == 'true' %>
 
 # Use memcached to cache HTML fragments for better performance. Will
 # only have an effect in environments where
 # config.action_controller.perform_caching is set to true
-CACHE_FRAGMENTS: <%= ENV['CACHE_FRAGMENTS'] == 'true' ? true : false %>
+CACHE_FRAGMENTS: <%= ENV['CACHE_FRAGMENTS'] == 'true' %>
 
-ALLOW_BATCH_REQUESTS: <%= ENV['ALLOW_BATCH_REQUESTS'] == 'true' ? true : false %>
+ALLOW_BATCH_REQUESTS: <%= ENV['ALLOW_BATCH_REQUESTS'] == 'true' %>
 
 # Use the responsive base stylesheets and templates, rather than those that
 # only render the site at a fixed width. They allow the site to render nicely
@@ -218,7 +218,7 @@ ALLOW_BATCH_REQUESTS: <%= ENV['ALLOW_BATCH_REQUESTS'] == 'true' ? true : false %
 # RESPONSIVE_STYLING - Boolean (default: true)
 #
 # ---
-RESPONSIVE_STYLING: <%= ENV['RESPONSIVE_STYLING'] == 'true' ? true : false %>
+RESPONSIVE_STYLING: <%= ENV['RESPONSIVE_STYLING'] == 'true' %>
 PAYPAL_CODE: <%= ENV['PAYPAL_CODE'] %>
 
 PRODUCTION_MAILER_DELIVERY_METHOD: <%= ENV.fetch('PRODUCTION_MAILER_DELIVERY_METHOD', 'smtp') %>
@@ -228,4 +228,4 @@ SMTP_MAILER_DOMAIN: <%= ENV['MAILER_DOMAIN'] %>
 SMTP_MAILER_USER_NAME: <%= ENV['MAILER_USER_NAME'] %>
 SMTP_MAILER_PASSWORD: <%= ENV['MAILER_PASSWORD'] %>
 SMTP_MAILER_AUTHENTICATION: <%= ENV['MAILER_AUTHENTICATION'] %>
-SMTP_MAILER_ENABLE_STARTTLS_AUTO: <%= ENV['MAILER_ENABLE_STARTTLS_AUTO'] == 'true' ? true : false %>
+SMTP_MAILER_ENABLE_STARTTLS_AUTO: <%= ENV['MAILER_ENABLE_STARTTLS_AUTO'] == 'true' %>
