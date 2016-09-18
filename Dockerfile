@@ -23,11 +23,6 @@ RUN apt-get -y install supervisor ca-certificates git postgresql-client build-es
 # Clone develop branch
 RUN git clone https://github.com/mysociety/alaveteli.git --branch "$ADAVETELI_TAG" --depth 1 /opt/alaveteli
 
-# Add yaml configuration which take environment variables
-ADD assets/database.yml /opt/alaveteli/config/database.yml
-ADD assets/general.yml /opt/alaveteli/config/general.yml
-ADD assets/newrelic.yml /opt/alaveteli/config/newrelic.yml
-
 WORKDIR /opt/alaveteli
 
 RUN git submodule init && git submodule update

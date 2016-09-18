@@ -4,27 +4,22 @@ Dockerfile for building Alaveteli
 
 You need:
 
-1. a .env file that the docker image can use which has all the relevant
-   `config/general/yml` settings you might expect in an Alaveteli
-   installation
-
-Checkout the `.env-sample`, fill in the values, and rename it `.env`
-
-This is designed to be run with a mounted volume for sharing the socket
-file with a webserver like nginx.
+1. Prepare config files database.yml, general.yml and newrelic.yml
 
 Run with docker like this:
 
 ```
 docker --run -v /data/alaveteli:/data/alaveteli \
-  --env-file=/path/to/your/environment/file \
-  nzherald/alaveteli
+  -v /opt/alaveteli/config/database.yml: /opt/alaveteli/config/database.yml \
+  -v /opt/alaveteli/config/general.yml: /opt/alaveteli/config/general.yml \
+  -v /opt/alaveteli/config/newrelic.yml: /opt/alaveteli/config/newrelic.yml \
+  siuying/alaveteli
 ```
 
 ### How to customise:
 
-`git clone https://github.com/nzherald/alaveteli-docker.git`
+`git clone https://github.com/siuying/alaveteli-docker.git`
 
 `cd alaveteli-docker`
 
-`docker build -t nzherald/alaveteli-docker .`
+`docker build -t siuying/alaveteli .`
