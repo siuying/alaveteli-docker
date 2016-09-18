@@ -28,9 +28,4 @@ cp -rf /opt/alaveteli/public /data/alaveteli
 
 chown -R $(whoami) /data
 
-bundle exec thin \
-  --environment=$RAILS_ENV \
-  --user=alaveteli \
-  --group=alaveteli \
-  --servers=1 \
-  start
+bundle exec thin --environment=$RAILS_ENV start
